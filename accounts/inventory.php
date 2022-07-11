@@ -31,8 +31,9 @@
                   <tr>
                     <th scope="col"  class="text-center"> Item Name</th>
                     <th scope="col"  class="text-center"> Description</th>
-                    <th scope="col"  class="text-center"> Quantity</th>
+                    <th scope="col"  class="text-center"> Total Quantity</th>
                     <th scope="col"  class="text-center"> Quantity In Use</th>
+                    <th scope="col"  class="text-center"> Quantity Available</th>
                     <th scope="col"  class="text-center"> Category</th>
                     <th scope="col"  class="text-center"> Supplier</th>
 					<?php if($_SESSION['role'] ==1){?>
@@ -51,9 +52,17 @@
                     <td class="text-center"><?php echo $val->qty;?></td>
                     <td class="text-center">
 						<?php 
-							$cm_inventory1 = $mysqli->query("SELECT sum(qty)qty from cm_event_equipments where equipment_name ='$equip' and is_return=0 group by equipment_name ");
+							$cm_inventory1 = $mysqli->query("SELECT sum(qty)qty from cm_event_equipments where equipment_name ='$equip' and is_return=0 and is_use=1 group by equipment_name ");
 							 while($val3 = $cm_inventory1->fetch_object()){ 
 								echo $cminven = $val3->qty;
+							 }
+						?>
+					</td> 
+					<td class="text-center">
+						<?php 
+							$cm_inventory1 = $mysqli->query("SELECT sum(qty)qty from cm_event_equipments where equipment_name ='$equip' and is_return=0 and is_use=1 group by equipment_name ");
+							 while($val3 = $cm_inventory1->fetch_object()){ 
+								echo $cminven = $val->qty - $val3->qty;
 							 }
 						?>
 					</td>

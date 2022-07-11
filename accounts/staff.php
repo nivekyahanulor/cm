@@ -24,7 +24,7 @@
             <div class="card-body">
 			
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table " id="table_id">
                 <thead>
                   <tr>
                     <th scope="col"  class="text-center"> Name</th>

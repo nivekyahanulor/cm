@@ -24,22 +24,15 @@ if(isset($_POST['add-events'])){
 	 
 	$lastid = $mysqli->insert_id;
 	
+	$items = $mysqli->query("select * from cm_package_task where package_id='$event_package'");	
+	while($val1 = $items->fetch_object()){ 
+	$task = $val1->task;
+	$mysqli->query("INSERT INTO cm_event_task (event_id , task_name,task_type) 
+					VALUES ('$lastid','$task','Pre-Event')");
+	}
 	
-	$mysqli->query("INSERT INTO cm_event_task (event_id , task_name,task_type) 
-					VALUES ('$lastid','Digital Photography Pictorial','Pre-Event')");
-	$mysqli->query("INSERT INTO cm_event_task (event_id , task_name,task_type) 
-					VALUES ('$lastid','Edit save the date video','Pre-Event')");
-	$mysqli->query("INSERT INTO cm_event_task (event_id , task_name,task_type) 
-					VALUES ('$lastid','Edit audio-visual presentation','Pre-Event')");
-	$mysqli->query("INSERT INTO cm_event_task (event_id , task_name,task_type) 
-					VALUES ('$lastid','Taste test for courses','Pre-Event')");
-	$mysqli->query("INSERT INTO cm_event_task (event_id , task_name,task_type) 
-					VALUES ('$lastid','Gown preparation','Pre-Event')");
-	$mysqli->query("INSERT INTO cm_event_task (event_id , task_name,task_type) 
-					VALUES ('$lastid','Event place preparation','Pre-Event')");
-	$mysqli->query("INSERT INTO cm_event_task (event_id , task_name,task_type) 
-					VALUES ('$lastid','Invitation preparation','Pre-Event')");
-					
+	
+	
 	
 	$item = $mysqli->query("SELECT a.qty,a.package_item_id,a.item_id,b.name from cm_package_items a left join cm_inventory b on b.item_id = a.item_id where a.package='$event_package'");
 	while($val = $item->fetch_object()){ 

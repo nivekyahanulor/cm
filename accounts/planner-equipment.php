@@ -54,11 +54,11 @@
 						<?php 
 							$cm_inventory = $mysqli->query("SELECT * from cm_inventory where name ='$equip'");
 							 while($val3 = $cm_inventory->fetch_object()){ 
-								echo $cminven = $val3->qty;
-								$minus = $val->qty - $cminven;
+								 $cminven = $val3->qty;
+								 echo $minus   = $cminven - $val->qty;
 							 }
 						?>
-
+ 
 					
 					</td>
                     <td class="text-center">
