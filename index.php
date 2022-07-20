@@ -46,9 +46,13 @@
                   <img src="assets/img/logo.png" alt="">
                 </a>
               </div><!-- End Logo -->
-
+			<?php if(isset($_GET['error'])){?>
+				<div class="alert alert-success alert-dismissable">
+					<strong>Error!</strong> Please check username and password!
+				</div> 
+			  <?php } ?>
               <div class="card mb-3">
-
+			
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">

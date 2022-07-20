@@ -1,8 +1,12 @@
 <?php
 include('../controller/database.php');
 
-
-$packages = $mysqli->query("SELECT a.qty,a.package_item_id,a.item_id,b.name from cm_package_items a left join cm_inventory b on b.item_id = a.item_id");
+$get_id   = $_GET['id'];
+$packages = $mysqli->query("SELECT a.qty,a.package_item_id,a.item_id,b.name 
+							from cm_package_items a 
+							left join cm_inventory b on b.item_id = a.item_id
+							where a.package='$get_id'
+							");
 							
 							
 if(isset($_POST['add-package'])){

@@ -77,7 +77,7 @@
                     <td class="text-center">
 							<button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#edit-task<?php echo $val->event_equipment_id;?>"> <i class="bi bi-pencil-square"></i> </button>
 						<?php if($val->is_use ==0) { ?>
-							<button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#delete-task<?php echo $val->event_equipment_id;?>"> <i class="bi bi-trash"></i> </button>
+							<button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#delete-item<?php echo $val->event_equipment_id;?>"> <i class="bi bi-trash"></i> </button>
 						<?php } ?>
 					</td>
                   </tr>
@@ -162,7 +162,7 @@
 								<input type="hidden" class="form-control" name="qty" value="<?php echo $val->qty;?>" required>
 								<input type="hidden" class="form-control" name="cminven" value="<?php echo $cminven;?>" required>
 								<input type="hidden" class="form-control" name="equipment_name" value="<?php echo $val->equipment_name;?>" required>
-								<input type="hidden" class="form-control" name="event_equipment_id" value="<?php echo $val->event_equipment_id;?>" required>
+								<input type="hidden" class="form-control" name="id" value="<?php echo $val->event_equipment_id;?>" required>
 							</div>
 						</div>
 						<div class="modal-footer">

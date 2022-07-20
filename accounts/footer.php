@@ -59,7 +59,7 @@
 </body>
 <script>
 
-var link = 'http://localhost/event/accounts/';
+var link = 'http://localhost/cm/accounts/';
 
 	$(document).ready(function() {
 	

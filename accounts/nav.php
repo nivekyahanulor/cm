@@ -108,7 +108,7 @@
                         $index = 'collapsed';
                         $packages = 'collapsed';
                         $settings = 'collapsed';
-                    } else if ($page == 'packages.php') {
+                    } else if ($page == 'packages.php' || $page =='package-inventory.php') {
                         $packages = 'active';
                         $foods = 'collapsed';
 						$inventory = 'collapsed';

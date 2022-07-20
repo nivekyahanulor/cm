@@ -29,7 +29,7 @@
 			$_SESSION['name']  = $row1['firstname'].' '. $row1['lastname'];
 			$_SESSION['id']    = $row1['staff_id'];
 			$_SESSION['role']  = 2;
-			$_SESSION['user']  ='Head Staff';
+			$_SESSION['user']  = $row1['role'];
 			header("location:../accounts/index.php");
 		} else { 
 			header("location:../index.php?error");
